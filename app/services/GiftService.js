@@ -13,8 +13,10 @@ class GiftService {
     async getApiGifts() {
         const response = await api.get('api/gifts')
         console.log('🎁 Getting Api gifts:', response.data)
-        AppState.theGifts = response.data
-        console.log('✨🎁', AppState.theGifts)
+        // AppState.theGifts = response.data
+        const newGifts = response.data.map(giftData => new Gift(giftData))
+        console.log('✨🎁', newGifts)
+        AppState.theGifts = newGifts
     }
 }
 
