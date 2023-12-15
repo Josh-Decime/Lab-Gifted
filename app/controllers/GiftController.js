@@ -38,6 +38,15 @@ export class GiftController {
         }
     }
 
+    async openGift(id) {
+        try {
+            await giftService.openPresent(id)
+        } catch (error) {
+            Pop.error(error)
+            console.error(error)
+        }
+    }
+
 
 
 

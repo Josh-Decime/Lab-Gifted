@@ -1,5 +1,18 @@
 <h1>GIFTS!!!</h1>
+<section class="container-fluid">
+    <section class="row">
+        <div id="gifts-draw">
+        </div>
+    </section>
+</section>
 
-<div id="gifts-draw">
 
+
+
+
+<!-- SECTION gifts template -->
+<div class="col-3 m-3 card">
+    <p class="text-center">${this.tag}</p>
+    <img src="${this.url}" alt="Gift Image">
+    <button onclick="app.GiftService.openPresent(id)">OPEN!</button>
 </div>

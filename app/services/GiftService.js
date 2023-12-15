@@ -18,6 +18,17 @@ class GiftService {
         console.log('✨🎁', newGifts)
         AppState.theGifts = newGifts
     }
+
+    async openPresent(id) {
+        let foundGift = AppState.theGifts.find(gift => gift.id == id)
+        foundGift.opened = !foundGift.opened
+        console.log('🎁 LET OPEN OUR PRESENT! 🎁', foundGift)
+        const response = await api.put(`api/gifts/${id}`, foundGift)
+        console.log('🙏Please work', response.data)
+        foundGift.url = response.data.url
+        AppState.emit('theGifts')
+    }
+
 }
 
 export const giftService = new GiftService()
